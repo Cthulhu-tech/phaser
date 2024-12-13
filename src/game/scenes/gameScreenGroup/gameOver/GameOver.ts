@@ -1,19 +1,16 @@
-import { EventBus } from '../EventBus';
+import { EventBus } from '../../../EventBus';
 import { Scene } from 'phaser';
 
-export class GameOver extends Scene
-{
+export class GameOver extends Scene {
     camera: Phaser.Cameras.Scene2D.Camera;
     background: Phaser.GameObjects.Image;
     gameOverText : Phaser.GameObjects.Text;
 
-    constructor ()
-    {
+    constructor () {
         super('GameOver');
     }
 
-    create ()
-    {
+    create () {
         this.camera = this.cameras.main
         this.camera.setBackgroundColor(0xff0000);
 
@@ -29,8 +26,7 @@ export class GameOver extends Scene
         EventBus.emit('current-scene-ready', this);
     }
 
-    changeScene ()
-    {
+    changeScene () {
         this.scene.start('MainMenu');
     }
 }

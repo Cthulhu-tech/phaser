@@ -27,7 +27,9 @@
         "build-nolog": "vite build --config vite/config.prod.mjs"
     },
     "dependencies": {
+        "@koreez/phaser3-isometric-plugin": "^0.2.1",
         "phaser": "^3.87.0",
+        "phaser3-plugin-isometric": "^0.0.7",
         "vue": "^3.4.27"
     },
     "devDependencies": {
@@ -36,6 +38,7 @@
         "@vitejs/plugin-vue": "^5.0.4",
         "@vue/tsconfig": "^0.5.1",
         "terser": "^5.31.0",
+        "tslib": "^2.8.1",
         "typescript": "~5.3.3",
         "vite": "^5.2.11",
         "vue-tsc": "^2.0.6"
