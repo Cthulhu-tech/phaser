@@ -1,11 +1,7 @@
 {
-    "version": "1.11",
-    "tiledversion": "1.11.1",
+    "version": "1.0.0",
+    "tiledversion": "1.0.0",
     "orientation": "orthogonal",
-    "width": 11,
-    "height": 11,
-    "tilewidth": 64,
-    "tileheight": 32,
     "tilesets": [
       {
         "firstgid": 1,
@@ -14,41 +10,229 @@
     ],
     "layers": [
       {
-        "type": "tilelayer",
-        "name": "wastelandEasyLelvel_health_v1",
+        "type": "entrance",
+        "name": "wastelandEasyLelvel_entrance_v1",
         "width": 10,
         "height": 10,
         "visible": true,
-        "data": [
-          [9, 2, 1, 1, 4, 4, 1, 6, 2, 10],
-          [2, 6, 1, 0, 4, 4, 0, 0, 2, 2],
-          [6, 1, 0, 0, 4, 4, 0, 0, 8, 8],
-          [0, 0, 0, 0, 4, 4, 0, 0, 0, 9],
-          [0, 0, 0, 0, 4, 4, 0, 0, 0, 0],
-          [0, 0, 0, 0, 4, 4, 0, 0, 0, 3],
-          [0, 0, 0, 0, 4, 4, 0, 0, 0, 0],
-          [0, 0, 0, 0, 4, 4, 0, 0, 0, 0],
-          [3, 7, 3, 3, 3, 3, 3, 3, 7, 3],
-          [3, 7, 3, 3, 3, 12, 3, 3, 7, 3]
-        ]
+        "layers": {
+          "tiles": [
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          ],
+          "props": [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          ],
+          "monsters": [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          ]
+        }
       },
       {
-        "type": "tilelayer",
-        "name": "wastelandEasyLelvel_health_v2",
-        "width": 11,
-        "height": 9,
+        "type": "boss",
+        "name": "wastelandEasyLelvel_boss_v1",
+        "width": 10,
+        "height": 10,
         "visible": true,
-        "data": [
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-          [4, 4, 4, 4, 4, 12, 4, 4, 4, 4, 4]
-        ]
+        "layers": {
+          "tiles": [
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          ],
+          "props": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ],
+          "monsters": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ]
+        }
+      },
+      {
+        "type": "heal",
+        "name": "wastelandEasyLelvel_heal_v1",
+        "width": 10,
+        "height": 10,
+        "visible": true,
+        "layers": {
+          "tiles": [
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          ],
+          "props": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ],
+          "monsters": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ]
+        }
+      },
+      {
+        "type": "treasure",
+        "name": "wastelandEasyLelvel_treasure_v1",
+        "width": 10,
+        "height": 10,
+        "visible": true,
+        "layers": {
+          "tiles": [
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          ],
+          "props": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ],
+          "monsters": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ]
+        }
+      },
+      {
+        "type": "monsters",
+        "name": "wastelandEasyLelvel_monsters_v1",
+        "width": 10,
+        "height": 10,
+        "visible": true,
+        "layers": {
+          "tiles": [
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+          ],
+          "props": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ],
+          "monsters": [
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null],
+            [null, null, null ,null, null, null, null, null, null, null]
+          ]
+        }
       }
     ]
   }
