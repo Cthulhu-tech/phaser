@@ -86,17 +86,29 @@ export class Generate implements IGenerate {
     container_tree: Tree;
     W_RATIO: number;
     H_RATIO: number;
+    room_gap: number;
+    road_width: number;
+    MAX_WIDTH: number;
+    MAX_HEIGHT: number;
     constructor({
         width,
         height,
         iteration,
         W_RATIO,
         H_RATIO,
+        room_gap,
+        road_width,
+        MAX_WIDTH,
+        MAX_HEIGHT,
     }: GenerateType) {
         this.width = width;
         this.height = height;
         this.W_RATIO = W_RATIO;
         this.H_RATIO = H_RATIO;
+        this.room_gap = room_gap;
+        this.road_width = road_width;
+        this.MAX_WIDTH = MAX_WIDTH;
+        this.MAX_HEIGHT = MAX_HEIGHT;
         this.main_container = new Container(0, 0, this.width, this.height);
         this.container_tree = this.splitContainer(this.main_container, iteration);
     }
@@ -107,11 +119,32 @@ export class Generate implements IGenerate {
         w: number,
         h: number,
     ) {
-        for (let i = y; i < Math.min(y + h, array.length); i++) {
-            for (let j = x; j < Math.min(x + w, array[0].length); j++) {
-                array[i][j] = 1;
+        for (let i = y - 1; i <= y + h; i++) {
+            for (let j = x - 1; j <= x + w; j++) {
+                // Проверяем, что координаты внутри границ массива
+                if (i >= 0 && i < array.length && j >= 0 && j < array[0].length) {
+                    if(i === y - 1) { // Верхняя стена
+                        array[i][j] = 1;
+                    }
+                    if(j === x + w) { // Правая стена
+                        array[i][j] = 2;
+                    }
+                    if(i === y + h) { // Нижняя стена
+                        array[i][j] = 3;
+                    }
+                    if(j === x - 1) { // Левая стена
+                        array[i][j] = 4;
+                    }
+                }
             }
         }
+
+        for (let i = y; i < Math.min(y + h, array.length); i++) {
+            for (let j = x; j < Math.min(x + w, array[0].length); j++) {
+                array[i][j] = 5;
+            }
+        }
+
         return array;
     }
     createPath(gameMap: number[][]) {
@@ -128,7 +161,11 @@ export class Generate implements IGenerate {
         this.draw_paths(tree.rchild, gameMap);
     }
 
-    private drawPath(containerLeft: Container, containerRight: Container, gameMap: number[][]) {
+    private drawPath(
+        containerLeft: Container,
+        containerRight: Container,
+        gameMap: number[][],
+    ) {
         let x1 = Math.floor(containerLeft.center.x); // Округление на случай дробных координат
         let y1 = Math.floor(containerLeft.center.y);
         let x2 = Math.floor(containerRight.center.x);
@@ -141,9 +178,15 @@ export class Generate implements IGenerate {
         let err = dx - dy;
     
         while (true) {
-            // Проверяем, что координаты внутри карты
-            if (y1 >= 0 && y1 < gameMap.length && x1 >= 0 && x1 < gameMap[0].length) {
-                gameMap[y1][x1] = 2; // Обозначаем путь
+            // Помечаем ячейки в пределах ширины дороги
+            for (let i = -Math.floor(this.road_width / 2); i <= Math.floor(this.road_width / 2); i++) {
+                for (let j = -Math.floor(this.road_width / 2); j <= Math.floor(this.road_width / 2); j++) {
+                    let nx = x1 + i; // Расширяем дорогу по X
+                    let ny = y1 + j; // Расширяем дорогу по Y
+                    if (ny >= 0 && ny < gameMap.length && nx >= 0 && nx < gameMap[0].length) {
+                        gameMap[ny][nx] = 6; // Обозначаем дорогу
+                    }
+                }
             }
     
             // Если достигли конечной точки, выходим из цикла
@@ -169,6 +212,7 @@ export class Generate implements IGenerate {
         }
         return gameMap;
     }
+    
     splitContainer(container: Container, iter: number) {
         const root = new Tree(container);
         if (iter != 0) {
@@ -178,40 +222,43 @@ export class Generate implements IGenerate {
         }
         return root;
     }
+    
     randomSplit(container: Container) {
         let r1 = null;
         let r2 = null;
-        if (random(0, 1) == 0) {
-            // Vertical
+        if (random(0, 1) === 0) {
+            // Vertical разделение
+            const splitWidth = random(1, Math.min(container.w - this.room_gap, this.MAX_WIDTH)); // Учитываем gap
             r1 = new Container(
-                container.x, container.y,             // r1.x, r1.y
-                random(1, container.w), container.h   // r1.w, r1.h
+                container.x, container.y,                 // r1.x, r1.y
+                splitWidth, container.h                  // r1.w, r1.h
             );
-
+    
             r2 = new Container(
-                container.x + r1.w, container.y,      // r2.x, r2.y
-                container.w - r1.w, container.h       // r2.w, r2.h
+                container.x + splitWidth + this.room_gap, container.y, // r2.x, r2.y (+ gap)
+                container.w - splitWidth - this.room_gap, container.h // r2.w, r2.h
             );
-
-            const r1_w_ratio = r1.w / r1.h
-            const r2_w_ratio = r2.w / r2.h
+    
+            const r1_w_ratio = r1.w / r1.h;
+            const r2_w_ratio = r2.w / r2.h;
             if (r1_w_ratio < this.W_RATIO || r2_w_ratio < this.W_RATIO) {
                 return this.randomSplit(container);
             }
         } else {
-            // Horizontal
+            // Horizontal разделение
+            const splitHeight = random(1, Math.min(container.h - this.room_gap, this.MAX_HEIGHT)); // Учитываем gap
             r1 = new Container(
-                container.x, container.y,             // r1.x, r1.y
-                container.w, random(1, container.h)   // r1.w, r1.h
+                container.x, container.y,                 // r1.x, r1.y
+                container.w, splitHeight                  // r1.w, r1.h
             );
-
+    
             r2 = new Container(
-                container.x, container.y + r1.h,      // r2.x, r2.y
-                container.w, container.h - r1.h       // r2.w, r2.h
+                container.x, container.y + splitHeight + this.room_gap, // r2.x, r2.y (+ gap)
+                container.w, container.h - splitHeight - this.room_gap  // r2.w, r2.h
             );
-
-            const r1_h_ratio = r1.h / r1.w
-            const r2_h_ratio = r2.h / r2.w
+    
+            const r1_h_ratio = r1.h / r1.w;
+            const r2_h_ratio = r2.h / r2.w;
             if (r1_h_ratio < this.H_RATIO || r2_h_ratio < this.H_RATIO) {
                 return this.randomSplit(container);
             }

@@ -17,4 +17,8 @@ export type GenerateType = {
     iteration: number;
     W_RATIO: number;
     H_RATIO: number;
+    room_gap: number;
+    road_width: number;
+    MAX_WIDTH: number;
+    MAX_HEIGHT: number;
 }

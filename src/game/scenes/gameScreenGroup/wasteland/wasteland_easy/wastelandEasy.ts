@@ -85,8 +85,12 @@ export class wastelandEasy extends Scene {
             width: this.WIDTH,
             height: this.HEIGHT,
             iteration: 4,
-            W_RATIO: .45,
-            H_RATIO: .45,
+            W_RATIO: .3,
+            H_RATIO: .3,
+            room_gap: 2,
+            road_width: 1,
+            MAX_WIDTH: 50,
+            MAX_HEIGHT: 50,
         });
 
         this.gameMap = generateMap.createRooms(this.gameMap);
